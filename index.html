@@ -1,10 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="BY">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="./src/style/style.css">
+<!--    <link rel="stylesheet" href="./src/style/slider.css">-->
+    <title>Блакіт</title>
+
 </head>
 <body>
+<div class="wrapper">
+    <header class="header">
+        <div class="logo"><p>блакiт</p></div>
+        <nav class="nav">
+            <ul class="menu">
+                <li class="menu-item"><a href="#">пра нас</a></li>
+                <li class="menu-item"><a href="#">кантакты</a></li>
+                <li class="menu-item"><a href="#">увайсці</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+<!--        <div id="contentContainer">-->
+<!--            <div id="wrapper">-->
+<!--                <div id="itemOne" class="content1">-->
+
+<!--                </div>-->
+<!--                <div id="itemTwo" class="content1">-->
+
+<!--                </div>-->
+<!--                <div id="itemThree" class="content1">-->
+
+<!--                </div>-->
+<!--                <div id="itemFour" class="content1">-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div id="navLinks">-->
+<!--            <ul>-->
+<!--                <li class="itemLinks" data-pos="0px"></li>-->
+<!--                <li class="itemLinks" data-pos="-550px"></li>-->
+<!--                <li class="itemLinks" data-pos="-1100px"></li>-->
+<!--                <li class="itemLinks" data-pos="-1650px"></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+        <div class="slider">
+            <section class="cd-slider">
+                <ul>
+                    <li data-color="rgba(178, 211, 230, 0.1)">
+                        <div class="content_" style="background-image:url('./src/images/house.jpeg'); background-size: cover; backdrop-filter: blur(8px);">
+                            <blockquote>
+                                <p>заголовок</p>
+                                <span>ссылка на ресурс</span>
+                            </blockquote>
+                        </div>
+                    </li>
+                    <li data-color="rgba(178, 211, 230, 0.1)">
+                        <div class="content_" style="background-image:url('./src/images/castle.jpeg'); background-size: cover;">
+                            <blockquote>
+                                <p>Will you still love me When I'm no longer young and beautiful Will you still love me</p>
+                                <span>Young And Beautiful - Lana Del Rey</span>
+                            </blockquote>
+                        </div>
+                    </li>
+                    <li data-color="rgba(178, 211, 230, 0.1)">
+                        <div class="content_" style="background-image:url('./src/images/house-castle.png'); background-size: cover;">
+                            <blockquote>
+                                <p>Blue jeans White shirt Walked into the room You know you made my eyes burn</p>
+                                <span>Blue Jeans - Lana Del Rey</span>
+                            </blockquote>
+                        </div>
+                    </li>
+                </ul>
+                <nav>
+                    <div><a class="prev" href="#"></a></div>
+                    <div><a class="next" href="#"></a></div>
+                </nav>
+            </section>
+        </div>
+        <div class="content">
+            <div class="content-item">
+                <p>Глядзець</p>
+                <div class="buttons">
+                    <a class="bt1" href="#"><button class="button"><span>Фільмы</span></button></a>
+                    <a class="bt1" href="#"><button class="button"><span>Анімэ</span></button></a>
+                    <a class="bt1" href="#"><button class="button"><span>Ютуб</span></button></a>
+                </div>
+            </div>
+            <div class="content-item">
+                <p>Чытаць</p>
+                <div class="buttons">
+                    <a class="bt1" href="#"><button class="button"><span>Кнігі</span></button></a>
+                    <a class="bt1" href="#"><button class="button"><span>Сайты</span></button></a>
+                    <a class="bt1" href="#"><button class="button"><span>Тэлеграм</span></button></a>
+                </div>
+            </div>
+            <div class="content-item">
+                <p>Слухаць</p>
+                <div class="buttons">
+                    <a class="bt1" href="#"><button class="button"><span>Музыка</span></button></a>
+                    <a class="bt1" href="#"><button class="button"><span>Аўдыёкнігі</span></button></a>
+                    <a class="bt1" href="#"><button class="button"><span>Падкасты</span></button></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="date">©2022</div>
+        <div class="author">Nerretten</div>
+        <div class="social">
+            <img class="pic" src="./src/images/free-icon-instagram-2111491.png" alt="inst">
+            <img class="pic" src="./src/images/free-icon-tik-tok-1946552.png" alt="tiktok">
+            <img class="pic" src="./src/images/premium-icon-twitter-4494465.png" alt="twitter">
+        </div>
+    </footer>
+</div>
+
+<script src="./src/scripts/sliderjs.js"></script>
 
 </body>
 </html>
