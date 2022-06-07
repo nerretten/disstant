@@ -1,163 +1,157 @@
-(function() {
+let slide_data = [
+    {
+        'src':'./src/images/slider-anime.jpg',
+        'title':'Навінкі анімэ',
+        'copy':'Самае новае і актуальнае анімэ.'
+    },
+    {
+        'src':'./src/images/movie-slider.jpeg',
+        'title':'Навінкі фільмаў',
+        'copy':'Таксама эксрэмісцкія.'
+    },
+    {
+        'src':'./src/images/music-slider.jpg',
+        'title':'Навінкі музыкі',
+        'copy':'Хуткія навіны па-беларуску..'
+    },
+    {
+        'src':'./src/images/books-slider.jpg',
+        'title':'Навінкі кніг',
+        'copy':'Экстрэмісцкія навіны.'
+    },
 
-    var autoUpdate = false,
-        timeTrans = 4000;
+];
+let slides = [],
+    captions = [];
 
-    var cdSlider = document.querySelector('.cd-slider'),
-        item = cdSlider.querySelectorAll("li"),
-        nav = cdSlider.querySelector("nav");
+let autoplay = setInterval(() => nextSlide(), 5000);
 
-    item[0].className = "current_slide";
+let container = document.getElementById('container');
+let leftSlider = document.getElementById('left-col');
+let up_button = document.getElementById('up_button');
+let down_button = document.getElementById('down_button');
+let caption = document.getElementById('slider-caption');
+let caption_heading = caption.querySelector('caption-heading');
 
-    for (var i = 0, len = item.length; i < len; i++) {
-        var color = item[i].getAttribute("data-color");
-        item[i].style.backgroundColor=color;
+down_button.addEventListener('click',function(e){
+    e.preventDefault();
+    clearInterval(autoplay);
+    nextSlide();
+    autoplay;
+});
+
+up_button.addEventListener('click',function(e){
+    e.preventDefault();
+    clearInterval(autoplay);
+    previousSlide();
+    autoplay;
+});
+
+for (let i = 0; i< slide_data.length; i++){
+    let slide = document.createElement('div'),
+        caption = document.createElement('div'),
+        slide_title = document.createElement('div');
+
+    slide.classList.add('slide');
+    slide.setAttribute('style','background:url('+slide_data[i].src+')');
+    caption.classList.add('caption');
+    slide_title.classList.add('caption-heading');
+    slide_title.innerHTML = '<h1>'+slide_data[i].title+'</h1>';
+
+    switch(i){
+        case 0:
+            slide.classList.add('current');
+            caption.classList.add('current-caption');
+            break;
+        case 1:
+            slide.classList.add('next');
+            caption.classList.add('next-caption');
+            break;
+        case slide_data.length -1:
+            slide.classList.add('previous');
+            caption.classList.add('previous-caption');
+            break;
+        default:
+            break;
     }
 
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE");
-    if ( msie > 0 ) {
-        var version = parseInt(ua.substring(msie+ 5, ua.indexOf(".", msie)));
-        if (version === 9) { cdSlider.className = "cd-slider ie9";}
+    caption.appendChild(slide_title);
+    caption.insertAdjacentHTML('beforeend',`<div class="caption-subhead"><span>${slide_data[i].copy}</span></div>`);
+    slides.push(slide);
+    captions.push(caption);
+    leftSlider.appendChild(slide);
+    container.appendChild(caption);
+}
+
+function nextSlide(){
+    slides[0].classList.remove('current');
+    slides[0].classList.add('previous','change');
+    slides[1].classList.remove('next');
+    slides[1].classList.add('current');
+    slides[2].classList.add('next');
+    let last = slides.length -1;
+    slides[last].classList.remove('previous');
+
+    captions[0].classList.remove('current-caption');
+    captions[0].classList.add('previous-caption','change');
+    captions[1].classList.remove('next-caption');
+    captions[1].classList.add('current-caption');
+    captions[2].classList.add('next-caption');
+
+    captions[last].classList.remove('previous-caption');
+
+    let placeholder = slides.shift();
+    let captions_placeholder = captions.shift();
+    slides.push(placeholder);
+    captions.push(captions_placeholder);
+}
+
+function previousSlide(){
+    slides[0].classList.remove('current');
+    slides[2].classList.add('previous','change');
+    slides[2].classList.remove('next');
+    slides[3].classList.add('current');
+    slides[0].classList.add('next');
+    let last = slides.length - 1;
+    slides[last].classList.remove('previous');
+
+    captions[0].classList.remove('current-caption');
+    captions[2].classList.add('previous-caption','change');
+    captions[2].classList.remove('next-caption');
+    captions[3].classList.add('current-caption');
+    captions[0].classList.add('next-caption');
+
+    captions[last].classList.remove('previous-caption');
+
+    let placeholder = slides.pop();
+    let captions_placeholder = captions.pop();
+    slides.unshift(placeholder);
+    captions.unshift(captions_placeholder);
+}
+
+let heading = document.querySelector('.caption-heading');
+
+function whichTransitionEvent(){
+    var t,
+        el = document.createElement("fakeelement");
+
+    var transitions = {
+        "transition"      : "transitionend",
+        "OTransition"     : "oTransitionEnd",
+        "MozTransition"   : "transitionend",
+        "WebkitTransition": "webkitTransitionEnd"
     }
 
-    if (item.length <= 1) {
-        nav.style.display = "none";
-    }
-
-    function prevSlide() {
-        var currentSlide = cdSlider.querySelector("li.current_slide"),
-            prevElement = currentSlide.previousElementSibling,
-            prevSlide = ( prevElement !== null) ? prevElement : item[item.length-1],
-            prevColor = prevSlide.getAttribute("data-color"),
-            el = document.createElement('span');
-
-        currentSlide.className = "";
-        prevSlide.className = "current_slide";
-
-        nav.children[0].appendChild(el);
-
-        var size = ( cdSlider.clientWidth >= cdSlider.clientHeight ) ? cdSlider.clientWidth*2 : cdSlider.clientHeight*2,
-            ripple = nav.children[0].querySelector("span");
-
-        ripple.style.height = size + 'px';
-        ripple.style.width = size + 'px';
-        ripple.style.backgroundColor = prevColor;
-
-        ripple.addEventListener("webkitTransitionEnd", function() {
-            if (this.parentNode) {
-                this.parentNode.removeChild(this);
-            }
-        });
-
-        ripple.addEventListener("transitionend", function() {
-            if (this.parentNode) {
-                this.parentNode.removeChild(this);
-            }
-        });
-
-    }
-
-    function nextSlide() {
-        var currentSlide = cdSlider.querySelector("li.current_slide"),
-            nextElement = currentSlide.nextElementSibling,
-            nextSlide = ( nextElement !== null ) ? nextElement : item[0],
-            nextColor = nextSlide.getAttribute("data-color"),
-            el = document.createElement('span');
-
-        currentSlide.className = "";
-        nextSlide.className = "current_slide";
-
-        nav.children[1].appendChild(el);
-
-        var size = ( cdSlider.clientWidth >= cdSlider.clientHeight ) ? cdSlider.clientWidth*2 : cdSlider.clientHeight*2,
-            ripple = nav.children[1].querySelector("span");
-
-        ripple.style.height = size + 'px';
-        ripple.style.width = size + 'px';
-        ripple.style.backgroundColor = nextColor;
-
-        ripple.addEventListener("webkitTransitionEnd", function() {
-            if (this.parentNode) {
-                this.parentNode.removeChild(this);
-            }
-        });
-
-        ripple.addEventListener("transitionend", function() {
-            if (this.parentNode) {
-                this.parentNode.removeChild(this);
-            }
-        });
-
-    }
-
-    updateNavColor();
-
-    function updateNavColor () {
-        var currentSlide = cdSlider.querySelector("li.current_slide");
-
-        var nextColor = ( currentSlide.nextElementSibling !== null ) ? currentSlide.nextElementSibling.getAttribute("data-color") : item[0].getAttribute("data-color");
-        var	prevColor = ( currentSlide.previousElementSibling !== null ) ? currentSlide.previousElementSibling.getAttribute("data-color") : item[item.length-1].getAttribute("data-color");
-
-        if (item.length > 2) {
-            nav.querySelector(".prev").style.backgroundColor = prevColor;
-            nav.querySelector(".next").style.backgroundColor = nextColor;
+    for (t in transitions){
+        if (el.style[t] !== undefined){
+            return transitions[t];
         }
     }
+}
 
-    nav.querySelector(".next").addEventListener('click', function(event) {
-        event.preventDefault();
-        nextSlide();
-        updateNavColor();
-    });
+var transitionEvent = whichTransitionEvent()
+caption.addEventListener(transitionEvent, customFunction);
 
-    nav.querySelector(".prev").addEventListener("click", function(event) {
-        event.preventDefault();
-        prevSlide();
-        updateNavColor();
-    });
-
-    //autoUpdate
-    setInterval(function() {
-        if (autoUpdate) {
-            nextSlide();
-            updateNavColor();
-        };
-    },timeTrans);
-
-})();
-//
-// var links = document.querySelectorAll(".itemLinks");
-// var wrapper = document.querySelector("#wrapper");
-//
-// var activeLink = 0;
-//
-// for (var i = 0; i < links.length; i++) {
-//     var link = links[i];
-//     link.addEventListener('click', setClickedItem, false);
-//     link.itemID = i;
-// }
-//
-// links[activeLink].classList.add("active");
-//
-// function setClickedItem(e) {
-//     removeActiveLinks();
-//
-//     var clickedLink = e.target;
-//     activeLink = clickedLink.itemID;
-//
-//     changePosition(clickedLink);
-// }
-//
-// function removeActiveLinks() {
-//     for (var i = 0; i < links.length; i++) {
-//         links[i].classList.remove("active");
-//     }
-// }
-//
-// function changePosition(link) {
-//     link.classList.add("active");
-//
-//     var position = link.getAttribute("data-pos");
-//     wrapper.style.left = position;
-// }
+function customFunction(event) {
+    caption.removeEventListener(transitionEvent, customFunction);
+}

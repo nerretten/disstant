@@ -64,13 +64,58 @@ a{
     font-size: 76px;
 }
 
-.nav{
+.container-nav {
+    height: 100%;
+}
+
+.container-nav .text {
+    position: relative;
+}
+
+.container-nav .text::before, .container-nav .text::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(67, 144, 188, 0.66);
+    transform-origin: right;
+    transition: transform 400ms ease;
+    z-index: -1;
+    transform: scaleX(0);
+}
+
+.container-nav .text:hover::before, .container-nav .text:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.container-nav .text::after {
+    z-index: -2;
+    filter: blur(30px);
+}
+
+.container-nav.container--2 {
+    top: 30%;
+    display: flex;
+}
+
+.container-nav.container--2 .text::before, .container-nav.container--2 .text::after {
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+
+.container-nav.container--2 .text:hover::before, .container-nav.container--2 .text:hover::after {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.menu-item > a:hover {
+    color: #222;
+}
+
+.nav-main{
     width: 80%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    /*justify-content: right;*/
-    /*line-height: 58px;*/
 }
 
 .menu{
@@ -78,23 +123,26 @@ a{
     height: 100%;
     width: 100%;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     list-style: none;
-    justify-content: space-around;
-    /*margin-right: 74px;*/
+    justify-content: flex-end;
 }
 
 .menu-item > a{
+    height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    transition: all 400ms ease;
+    align-items: center;
 }
 
 .menu-item{
+    height: 100%;
     width: 30%;
-    align-self: center;
-    /*margin-left: 60px;*/
     font-size: 3rem;
-    text-align: center;
-
+    z-index: 100;
 }
 
 .main{
@@ -116,12 +164,20 @@ a{
 }
 
 .content-item{
+    position: relative;
+    left: -1450px;
     width: 100%;
     height: 248px;
     background: rgba(178, 211, 230, 0.5);
     margin: 0;
     border-radius: 25px;
+    opacity: 0;
+    transition: all 1.5s ease-in-out;
+}
 
+.active{
+    opacity: 1;
+    transform: translateX(1450px);
 }
 
 .content-item > p{

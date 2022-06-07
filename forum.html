@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>блакіт</title>
+    <link rel="stylesheet" href="./src/style/style.css">
+    <link rel="stylesheet" href="./src/style/registration.css">
+    <link rel="stylesheet" href="./src/style/forum.css">
+</head>
+<body>
+<div class="overlay">
+    <main class="main-reg">
+        <div class="title-page">
+            <div class="title"><p>РЭГІСТРАЦІЯ</p></div>
+            <button class="close">X</button>
+        </div>
+
+        <div class="form">
+            <div class="reg-wrap">
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Email" onfocus="getLabelVisibility(0)" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Password" onfocus="getLabelVisibility(1)" name="psw" required>
+
+                <label for="psw-repeat"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" onfocus="getLabelVisibility(2)" name="psw-repeat" required>
+
+                <hr>
+                <button class="custom-btn btn-12"><span>Click!</span><span>Registration</span></button>
+
+                <div class="signin">
+                    Already have an account? <a href="#">Sign in</a>.
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div>
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+<div class="wrapper">
+    <header class="header">
+        <div class="logo"><a href="./index.html"><p>блакiт</p></a></div>
+        <nav class="nav-main">
+            <ul class="menu">
+                <li class="menu-item"><a href="./forum.html">форум</a></li>
+                <li class="menu-item"><a href="./contacts.html">кантакты</a></li>
+                <li class="menu-item" id="login"><a href="#">увайсці</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 class="h1"><p>ФОРУМ</p></h1>
+    <main class="main-forum">
+        <div class="forums">
+            <div class="forum-field">
+                <div class="forum-name"><p>Названне</p></div>
+                <div class="forum-count">Тэмы</div>
+                <div class="forum-posts">Пасты</div>
+            </div>
+            <div class="forum-field">
+                <div class="forum-name">Беларуская мова</div>
+                <div class="forum-count">3</div>
+                <div class="forum-posts">123</div>
+            </div>
+            <div class="forum-field"></div>
+            <div class="forum-field"></div>
+            <div class="forum-field"></div>
+            <div class="forum-field"></div>
+            <div class="forum-field"></div>
+            <div class="forum-field"></div>
+            <div class="forum-field"></div>
+            <div class="forum-field"></div>
+        </div>
+        <div class="other">
+            <div class="search">
+                <div class="search-content">
+                    <div class="search-text">Пошук</div>
+                    <div class="search-field"></div>
+                </div>
+            </div>
+            <div class="updates"></div>
+        </div>
+
+    </main>
+    <footer class="footer">
+        <div class="date">©2022</div>
+        <div class="author">Nerretten</div>
+        <div class="social">
+            <img class="pic" src="./src/images/free-icon-instagram-2111491.png" alt="inst">
+            <img class="pic" src="./src/images/free-icon-tik-tok-1946552.png" alt="tiktok">
+            <img class="pic" src="./src/images/premium-icon-twitter-4494465.png" alt="twitter">
+        </div>
+    </footer>
+</div>
+
+<script src="./src/scripts/registration.js"></script>
+
+</body>
+</html>

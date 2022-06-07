@@ -1,0 +1,126 @@
+.main-forum{
+    height: 1404px;
+    width: 100%;
+    display: flex;
+    /*justify-content: space-around;*/
+    flex-direction: row;
+}
+
+.h1{
+    margin-left: 5%;
+    width: 80%;
+    height: 200px;
+    font-size: 96px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.h1 > p{
+    height: 100%;
+    line-height: 200px;
+}
+
+.forums{
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 90%;
+    width: 60%;
+    background: #B2D3E67F;
+}
+
+.forum-field{
+    width: 100%;
+    height: 10%;
+    border: 1px solid rgba(67, 144, 188, 0.66);
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5vw;
+}
+
+.forum-name{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.forum-count{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.forum-posts{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.forum-field:first-child{
+    background: #8DBDD8;
+    border-radius: 25px 25px 0px 0px;
+    font-size: 2vw;
+    font-weight: 700;
+}
+
+.forum-field:last-child{
+    background: #8DBDD8;
+    border-radius: 0 0 25px 25px;
+    font-size: 2vw;
+    font-weight: 700;
+}
+
+.other{
+    width: 25%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.search{
+    height: 20%;
+    width: 100%;
+    background: #B2D3E67F;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-content{
+    height: 60%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.search-text{
+    font-weight: 700;
+    font-size: 2vw;
+}
+
+.search-field{
+    height: 20%;
+    width: 100%;
+    background: white;
+}
+
+.updates{
+    height: 75%;
+    width: 100%;
+    background: #B2D3E67F;
+    border-radius: 25px;
+}
+

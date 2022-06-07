@@ -2,105 +2,113 @@
 <html lang="BY">
 <head>
     <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="./src/style/slider.css">
     <link rel="stylesheet" href="./src/style/style.css">
-<!--    <link rel="stylesheet" href="./src/style/slider.css">-->
+    <link rel="stylesheet" href="./src/style/registration.css">
+
     <title>Блакіт</title>
 
 </head>
 <body>
+<div class="overlay">
+    <main class="main-reg">
+        <div class="title-page">
+            <div class="title"><p>РЭГІСТРАЦІЯ</p></div>
+            <button class="close">X</button>
+        </div>
+
+        <div class="form">
+          <div class="reg-wrap">
+    
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Email" onfocus="getLabelVisibility(0)" name="email" required>
+        
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Password" onfocus="getLabelVisibility(1)" name="psw" required>
+        
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" onfocus="getLabelVisibility(2)" name="psw-repeat" required>
+
+            <hr>
+            <button class="custom-btn btn-12"><span>Click!</span><span>Registration</span></button>
+
+            <div class="signin">
+                Already have an account? <a href="#">Sign in</a>.
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <div>
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+      </div>
+</div>
 <div class="wrapper">
     <header class="header">
         <div class="logo"><p>блакiт</p></div>
-        <nav class="nav">
-            <ul class="menu">
-                <li class="menu-item"><a href="#">пра нас</a></li>
-                <li class="menu-item"><a href="#">кантакты</a></li>
-                <li class="menu-item"><a href="#">увайсці</a></li>
+        <nav class="nav-main">
+            <ul class="menu container-nav container--2">
+                <li class="menu-item"><a href="./forum.html" class="text">форум</a></li>
+                <li class="menu-item"><a href="./contacts.html" class="text">кантакты</a></li>
+                <li class="menu-item" id="login"><a href="#" class="text">увайсці</a></li>
             </ul>
         </nav>
     </header>
     <main class="main">
-<!--        <div id="contentContainer">-->
-<!--            <div id="wrapper">-->
-<!--                <div id="itemOne" class="content1">-->
-
-<!--                </div>-->
-<!--                <div id="itemTwo" class="content1">-->
-
-<!--                </div>-->
-<!--                <div id="itemThree" class="content1">-->
-
-<!--                </div>-->
-<!--                <div id="itemFour" class="content1">-->
-
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div id="navLinks">-->
-<!--            <ul>-->
-<!--                <li class="itemLinks" data-pos="0px"></li>-->
-<!--                <li class="itemLinks" data-pos="-550px"></li>-->
-<!--                <li class="itemLinks" data-pos="-1100px"></li>-->
-<!--                <li class="itemLinks" data-pos="-1650px"></li>-->
-<!--            </ul>-->
-<!--        </div>-->
-        <div class="slider">
-            <section class="cd-slider">
-                <ul>
-                    <li data-color="rgba(178, 211, 230, 0.1)">
-                        <div class="content_" style="background-image:url('./src/images/house.jpeg'); background-size: cover; backdrop-filter: blur(8px);">
-                            <blockquote>
-                                <p>заголовок</p>
-                                <span>ссылка на ресурс</span>
-                            </blockquote>
-                        </div>
-                    </li>
-                    <li data-color="rgba(178, 211, 230, 0.1)">
-                        <div class="content_" style="background-image:url('./src/images/castle.jpeg'); background-size: cover;">
-                            <blockquote>
-                                <p>Will you still love me When I'm no longer young and beautiful Will you still love me</p>
-                                <span>Young And Beautiful - Lana Del Rey</span>
-                            </blockquote>
-                        </div>
-                    </li>
-                    <li data-color="rgba(178, 211, 230, 0.1)">
-                        <div class="content_" style="background-image:url('./src/images/house-castle.png'); background-size: cover;">
-                            <blockquote>
-                                <p>Blue jeans White shirt Walked into the room You know you made my eyes burn</p>
-                                <span>Blue Jeans - Lana Del Rey</span>
-                            </blockquote>
-                        </div>
-                    </li>
-                </ul>
-                <nav>
-                    <div><a class="prev" href="#"></a></div>
-                    <div><a class="next" href="#"></a></div>
-                </nav>
-            </section>
+        <div class="container" id="container">
+            <div class="caption" id="slider-caption">
+                <div class="caption-heading">
+                    <h1></h1>
+                </div>
+                <div class="caption-subhead">
+                    <span></span>
+                </div>
+            </div>
+            <div class="left-col" id="left-col">
+                <div id="left-slider"></div>
+            </div>
+            <ul class="nav">
+                <li class="slide-up"> <a id="up_button" href="#"> &larr; </a>
+                </li>
+                <li class="slide-down"> <a id="down_button" href="#"> &rarr; </a></li>
+            </ul>
         </div>
         <div class="content">
             <div class="content-item">
                 <p>Глядзець</p>
                 <div class="buttons">
-                    <a class="bt1" href="#"><button class="button"><span>Фільмы</span></button></a>
-                    <a class="bt1" href="#"><button class="button"><span>Анімэ</span></button></a>
-                    <a class="bt1" href="#"><button class="button"><span>Ютуб</span></button></a>
+                    <a class="bt1" href="./catalog.html?name=films"><button class="button"><span>Фільмы</span></button></a>
+                    <a class="bt1" href="./catalog.html?name=anime"><button class="button"><span>Анімэ</span></button></a>
+                    <a class="bt1" href="./catalog.html?name=youtube"><button class="button"><span>Ютуб</span></button></a>
                 </div>
             </div>
             <div class="content-item">
                 <p>Чытаць</p>
                 <div class="buttons">
-                    <a class="bt1" href="#"><button class="button"><span>Кнігі</span></button></a>
-                    <a class="bt1" href="#"><button class="button"><span>Сайты</span></button></a>
-                    <a class="bt1" href="#"><button class="button"><span>Тэлеграм</span></button></a>
+                    <a class="bt1" href="./catalog.html?name=books"><button class="button"><span>Кнігі</span></button></a>
+                    <a class="bt1" href="./catalog.html?name=sites"><button class="button"><span>Сайты</span></button></a>
+                    <a class="bt1" href="./catalog.html?name=telegram"><button class="button"><span>Тэлеграм</span></button></a>
                 </div>
             </div>
             <div class="content-item">
                 <p>Слухаць</p>
                 <div class="buttons">
-                    <a class="bt1" href="#"><button class="button"><span>Музыка</span></button></a>
-                    <a class="bt1" href="#"><button class="button"><span>Аўдыёкнігі</span></button></a>
-                    <a class="bt1" href="#"><button class="button"><span>Падкасты</span></button></a>
+                    <a class="bt1" href="./catalog.html?name=music"><button class="button"><span>Музыка</span></button></a>
+                    <a class="bt1" href="./catalog.html?name=audiobooks"><button class="button"><span>Аўдыёкнігі</span></button></a>
+                    <a class="bt1" href="./catalog.html?name=podcasts"><button class="button"><span>Падкасты</span></button></a>
                 </div>
             </div>
         </div>
@@ -116,7 +124,9 @@
     </footer>
 </div>
 
+<script src="./src/scripts/index.js"></script>
 <script src="./src/scripts/sliderjs.js"></script>
+<script src="./src/scripts/registration.js"></script>
 
 </body>
 </html>

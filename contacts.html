@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Блакіт</title>
+    <link rel="stylesheet" href="./src/style/registration.css">
+    <link rel="stylesheet" href="./src/style/contacts.css">
+</head>
+<body>
+<div class="overlay">
+    <main class="main-reg">
+        <div class="title-page">
+            <div class="title"><p>РЭГІСТРАЦІЯ</p></div>
+            <button class="close">X</button>
+        </div>
+
+        <div class="form">
+            <div class="reg-wrap">
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Email" onfocus="getLabelVisibility(0)" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Password" onfocus="getLabelVisibility(1)" name="psw" required>
+
+                <label for="psw-repeat"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" onfocus="getLabelVisibility(2)" name="psw-repeat" required>
+
+                <hr>
+                <button class="custom-btn btn-12"><span>Click!</span><span>Registration</span></button>
+
+                <div class="signin">
+                    Already have an account? <a href="#">Sign in</a>.
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div>
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="header">
+        <div class="logo"><a href="./index.html"><p>блакiт</p></a></div>
+        <nav class="nav">
+            <ul class="menu">
+                <li class="menu-item"><a href="./forum.html">форум</a></li>
+                <li class="menu-item"><a href="./contacts.html">кантакты</a></li>
+                <li class="menu-item" id="login"><a href="#">увайсці</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="title"><p>КАНТАКТЫ</p></div>
+        <div class="content">
+            <div class="content-item">Нумар тэлефону:<br><a href="tel:+74951234567">+7 (495) 123-45-67</a></div>
+            <div class="content-item">Электронная пошта:<br><a href="mailto:mail@htmlacademy.ru">nerretten@gmail.com</a></div>
+        </div>
+        <div class="map">
+            <div class="text">Месца знаходжання</div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26672.927839827367!2d23.700114269758664!3d52.090625525763805!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4721095f68bf12f1%3A0xc10ac290b474e5fe!2z0JHRgNC10YHRgtGB0LrQsNGPINCz0L7RgNC-0LTRgdC60LDRjyDQsdC-0LvRjNC90LjRhtCwIOKEljE!5e0!3m2!1sru!2sby!4v1651251650672!5m2!1sru!2sby" class="google"></iframe>
+        </div>
+        <div class="form-main">
+            <div class="text">Форма для сувязі</div>
+            <div class="elements">
+                <div class="names">
+                    <div class="name">
+                        <input type="text">
+                    </div>
+                    <div class="surname">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="mail">
+                    <input type="text">
+                </div>
+                <div class="message">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="buttons">
+                <a class="bt1" href="#"><button class="button">Адправіць</button></a>
+                <a class="bt1" href="#"><button class="button">Ачысціць</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="date">©2022</div>
+        <div class="author">Nerretten</div>
+        <div class="social">
+            <img class="pic" src="./src/images/free-icon-instagram-2111491.png" alt="inst">
+            <img class="pic" src="./src/images/free-icon-tik-tok-1946552.png" alt="tiktok">
+            <img class="pic" src="./src/images/premium-icon-twitter-4494465.png" alt="twitter">
+        </div>
+    </div>
+</div>
+
+<script src="./src/scripts/registration.js"
+</body>
+</html>
